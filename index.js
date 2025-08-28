@@ -60,12 +60,13 @@ function playGame() {
             document.getElementById("scoreboard").innerText = human + ":" + comp
         } else if (comp > human) {
             document.getElementById("result").innerText = "You are the Loser! :p"
-            document.getElementById("scoreboard").innerText = human + ":" + comp
+            document.getElementById("sc   oreboard").innerText = human + ":" + comp
         } else {
             document.getElementById("result").innerText = "It's a tie!"
             document.getElementById("scoreboard").innerText = human + ":" + comp
         }
     } else if (!humanChoice) {
+        greeting()
         noInput()
     } else {
         invalidInput()
@@ -73,4 +74,12 @@ function playGame() {
 
 
 }
+
+// function greeting(name) {
+//     const greeting = "Hello ";
+//     return greeting + name;
+// }
+
+const greeting = () => console.log("Hello arrow expression");
+
 
