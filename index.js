@@ -75,11 +75,8 @@ function playGame() {
 
 }
 
-// function greeting(name) {
-//     const greeting = "Hello ";
-//     return greeting + name;
-// }
 
-const greeting = () => console.log("Hello arrow expression");
+
+const greeting = () => console.log("Hello papi");
 
 
