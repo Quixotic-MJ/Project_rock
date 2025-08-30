@@ -1,86 +1,71 @@
+const choices = ["rock", "paper", "scissor"];
+let human = null
+let win = 0
+let tie = 0
+let lose = 0
+choices.forEach(choice => {
+    document.querySelector(`#${choice}`).onclick = () => {
+        human = choice; 
+        getHumanChoice(choice);
+    }
+        
+})
 
 
-function getComputerChoice() {
-    let choice = ["rock", "paper", "scissor"]
-    let computerChoice = choice[Math.floor(Math.random() * choice.length)];
-    return computerChoice
+const getComputerChoice = () => {
+    const result = choices[Math.floor(Math.random() * choices.length)];
+    return result
 }
 
-function getHumanChoice() {
-    let humanChoice = document.getElementById("answer").value.toLowerCase();
-    return humanChoice
+const getHumanChoice = (choice) => {
+    console.log(choice);
+    if (choice === "rock") {
+        document.getElementById("humanChoice").innerText = "🪨";
+    } else if (choice === "paper") {
+        document.getElementById("humanChoice").innerText = "📄";
+    } else {
+        document.getElementById("humanChoice").innerText = "✂️";
+    }
+    return choice
 }
 
-function noInput() {
-    document.getElementById("result").innerText = "Please provide a choice"
-}
+const playRound = () => {
+    let player = human
+    let comp = getComputerChoice()
 
-function invalidInput() {
-    document.getElementById("result").innerText = "This choice is not valid"
-}
+    if (comp === "rock") {
+        document.querySelector("#compChoice").innerText = "🪨";
+    } else if (comp === "paper") {
+        document.querySelector("#compChoice").innerText = "📄";
+    } else {
+        document.querySelector("#compChoice").innerText = "✂️";
+    }
 
-function playRound(humanChoice, computerChoice) {
-
-    if (humanChoice === computerChoice) {
-        return "tie"
+    if (!player) {
+        alert("Error");
+    } else if (player === comp) {
+        document.querySelector("#result").innerText = "It's a tie"
+        tie++
+        document.querySelector("#tie").innerText = tie
     } else if (
-        (humanChoice === "rock" && computerChoice === "scissor") ||
-        (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissor" && computerChoice === "paper")
+        (player === "rock" && comp === "scissor") ||
+        (player === "paper" && comp === "rock") ||
+        (player === "scissor" && comp === "paper")
     ) {
-        return "win"
+        document.querySelector("#result").innerText = "You win!"
+        win++
+        document.querySelector("#win").innerText = win
+        
     } else {
-        return "lose"
+        document.querySelector("#result").innerText = "You lose!"
+        lose++
+        document.querySelector("#lose").innerText = lose
     }
-
-}
-
-
-function playGame() {
-    let humanChoice = getHumanChoice()
-    let human = 0
-    let comp = 0
-    console.log(humanChoice);
-
-
-    if (["rock", "paper", "scissor"].includes(humanChoice)) {
-        for (let i = 0; i < 5; i++) {
-            let result = playRound(humanChoice, getComputerChoice())
-            console.log(result);
-
-            if (result === "win") {
-                human++
-            } else if (result === "lose") {
-                comp++
-            }
-        }
-
-        if (human > comp) {
-            document.getElementById("result").innerText = "You are the Winner! congrats!"
-            document.getElementById("scoreboard").innerText = human + ":" + comp
-        } else if (comp > human) {
-            document.getElementById("result").innerText = "You are the Loser! :p"
-            document.getElementById("sc   oreboard").innerText = human + ":" + comp
-        } else {
-            document.getElementById("result").innerText = "It's a tie!"
-            document.getElementById("scoreboard").innerText = human + ":" + comp
-        }
-    } else if (!humanChoice) {
-        greeting()
-        noInput()
-    } else {
-        invalidInput()
-    }
-
-
 }
 
 
 
-const greeting = () => console.log("Hello papi");
 
-// lets try this shit 
 
-// ni work nigga
 
 

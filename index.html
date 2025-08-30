@@ -4,25 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RPS game</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 
-<body style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h1>Rock Paper Scissors Game!</h1>
+<body>
+    <div class="head">
+        <h1>🪨📄✂️ Rock Paper Scissors</h1>
+        <p>choose your weapon and battle the computer!</p>
+    </div>
+    <div class="scoreboard">
+        <h2 style="margin-top: 0;">Score Board</h2>
+        <div style="display: flex; gap: 70px;">
+            <div id="yScore">
+                <p style="font-weight: 600; font-size: 40px; margin-bottom: 0; color:#00a63e ;" id="win">0</p>
+                <p style="margin-top: 10px;">You</p>
+            </div>
+            <div id="tScore">
+                <p style="font-weight: 600; font-size: 40px; margin-bottom: 0; color:#d08700 ;" id="tie">0</p>
+                <p style="margin-top: 10px;">Ties</p>
+            </div>
+            <div id="cScore">
+                <p style="font-weight: 600; font-size: 40px; margin-bottom: 0; color:#e7000b ;" id="lose">0</p>
+                <p style="margin-top: 10px;">computer</p>
+            </div>
+        </div>
+    </div>
+    <div class="versus">
+        <div id="versus1">
+            <h2>Your choice</h2>
+            <div id="yourChoice">
+                <p style="font-size: 120px; margin: 0; padding: 0;" id="humanChoice">❓</p>
+            </div>
+        </div>
+        <div id="versus2">
+            <h2> Computer's Choice</h2>
+            <div id="computerChoice">
+                <p style="font-size: 120px; margin: 0; padding: 0;" id="compChoice">❓</p>
+            </div>
+        </div>
+    </div>
+    <div class="makeChoice">
+        <h1 id="result" style="color: #737373;">Make your choice</h1>
+    </div>
+    <div class="buttons">
+        <h2>Choose your move:</h2>
+        <div style="display: flex; gap: 20px;">
+            <button style="background-color: black;" id="rock">🪨</button>
+            <button style="background-color: black;" id="paper">📄</button>
+            <button style="background-color: black;" id="scissor">✂️</button>
+        </div>
+        <br><br>
+        <button onclick="playRound()" class="buttons">Play</button>
 
-    <p> Rock,
-        Paper,
-        Scissors</p>
-    <h1>Scoreboard</h1>
-    <p style="font-size: 50px; font-weight: 1000; margin: 0 0 20px 0;" id="scoreboard"></p>
-    <input id="answer" type="text"> <br><br>
-    <button onclick="playGame()">Play</button>
-
-    <h1>Results</h1>
-    <p id="result"></p>
-    
-
-
+    </div>
+    <div class="instructions">
+        <h2>How to Play</h2>
+        <div class="ins1">
+            <div class="ins2">
+                <p class="ins3">🪨 beats ✂️</p>
+                <p>Rock crushes Scissors</p>
+            </div>
+            <div class="ins2">
+                <p class="ins3">📄 beats 🪨</p>
+                <p>Paper covers Rock</p>
+            </div>
+            <div class="ins2">
+                <p class="ins3">✂️ beats 📄</p>
+                <p>Scissors cuts Paper</p>
+            </div>
+        </div>
+    </div>
 
     <script src="index.js"></script>
 </body>
